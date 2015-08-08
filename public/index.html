@@ -283,10 +283,10 @@
       if (loggedInUser) {
         if (loggedInUser === user1) {
           console.log("Calling user2");
-          kandy.call.makeCall(user2, false);
+          kandy.call.makeCall(user2, true);
         } else {
           console.log("Calling user1");
-          kandy.call.makeCall(user1, false);
+          kandy.call.makeCall(user1, true);
         }
       }
     });

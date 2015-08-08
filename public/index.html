@@ -287,44 +287,22 @@
 <body>
   <div id="status"></div>
 
-
   <div id="login-form">
     <div id="login-user-1">Login User 1</div>
     <div id="login-user-2">Login User 2</div>
   </div>
 
-  <div id="logged-in">
+  <div id="logged-in" class="hidden">
     <div class='username'></div>
     <div id='logoutButton' class='hidden'>Logout</div>
-    <button class="btn btn-success" id="answer-call-btn">Answer Call</button><button class="btn btn-warning" id="reject-call-btn">Reject Call</button>
-    <button class="btn btn-danger" id="end-call-btn">End Call</button><button class="btn btn-warning" id="hold-call-btn">Hold Call</button><button class="btn btn-success hidden" id="resume-call-btn">Resume Call</button>
-    <button class="btn btn-danger" id="make-call-btn">Make Call</button><button class="btn btn-warning" id="make-call-btn">Make Call</button>
 
-
-  </div>
-
-
-  <div id="incoming-video"></div>
-
-  <div class="hidden" id="incoming-call">
-    <h4>
-      Incoming Call
-    </h4>
-    <p id="username-incoming"></p>
     <div class="btn-toolbar">
-      <button class="btn btn-success" id="answer-call-btn">Answer Call</button><button class="btn btn-warning" id="reject-call-btn">Reject Call</button>
+      <button class="btn btn-success" id="answer-call-btn">Answer Call</button>
+      <button class="btn btn-warning" id="reject-call-btn">Reject Call</button>
+      <button class="btn btn-danger" id="end-call-btn">End Call</button>
+      <button class="btn btn-danger" id="make-call-btn">Make Call</button>
     </div>
+    <div id="incoming-video"></div>
   </div>
-  <div class="hidden" id="call-connected">
-    <h4>
-      Call Connected
-    </h4>
-    <p id="username-connected"></p>
-    <div class="btn-toolbar">
-      <button class="btn btn-danger" id="end-call-btn">End Call</button><button class="btn btn-warning" id="hold-call-btn">Hold Call</button><button class="btn btn-success hidden" id="resume-call-btn">Resume Call</button>
-    </div>
-  </div>
-
-
 </body>
 </html>

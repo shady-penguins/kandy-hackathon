@@ -64,9 +64,8 @@
         callended: onCallTerminate,
         callendfailed: onCallEndedFailed
       },
-      remoteVideoContainer: function (videoTag) {
-        $('#incoming-video').append(videoTag);
-      },
+      remoteVideoContainer: $('#incoming-video')[0],
+
     });
 
     // Event handler for callansweredfailed event
@@ -232,21 +231,6 @@
       $('#incoming-call, #call-form').addClass('hidden');
       $('#call-connected').removeClass('hidden');
     };
-
-    UIState.holdcall = function() {
-      console.log('holdcall');
-
-      $('#hold-call-btn').addClass('hidden');
-      $('#resume-call-btn').removeClass('hidden');
-    };
-
-    UIState.resumecall = function() {
-      console.log('resumecall');
-
-      $('#hold-call-btn').removeClass('hidden');
-      $('#resume-call-btn').addClass('hidden');
-    };
-
 
     UIState.initial = function() {
       console.log('initial');

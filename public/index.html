@@ -23,6 +23,9 @@
   <script>
   $(document).ready(function() {
     var loggedInUser = null;
+    // Create audio objects to play incoming calls and outgoing calls sound
+    var $audioRingIn = $('<audio>', { loop: 'loop', id: 'ring-in' });
+    var $audioRingOut = $('<audio>', { loop: 'loop', id: 'ring-out' })
 
     kandy.setup({
       listeners: {
@@ -277,6 +280,23 @@
 
 
   <div id="incoming-video"></div>
+
+  <div class="hidden" id="incoming-call">
+              <h4>
+                Incoming Call
+              </h4>
+              <p id="username-incoming"></p>
+              <div class="btn-toolbar">
+                <button class="btn btn-success" id="answer-call-btn">Answer Call</button><button class="btn btn-warning" id="reject-call-btn">Reject Call</button>
+              </div>
+            </div><div class="hidden" id="call-connected">
+              <h4>
+                Call Connected
+              </h4>
+              <p id="username-connected"></p>
+              <div class="btn-toolbar">
+                <button class="btn btn-danger" id="end-call-btn">End Call</button><button class="btn btn-warning" id="hold-call-btn">Hold Call</button><button class="btn btn-success hidden" id="resume-call-btn">Resume Call</button>
+              </div>
 
 
 </body>

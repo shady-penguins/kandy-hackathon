@@ -115,6 +115,9 @@
   function onCallIncoming(call, isAnonymous) {
     $audioRingIn[0].play();
     callId = call.getId();
+    
+    console.log("Call is incoming.");
+    console.log("Call id: "+call.callerName);
 
     if (!isAnonymous) {
       $('#username-incoming').text(call.callerName + ' Calling!');

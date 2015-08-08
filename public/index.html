@@ -172,6 +172,12 @@
     UIState.oncall();
   })
 
+  // Event handler for call end button
+  $('#end-call-btn').on('click', function() {
+    kandy.call.endCall(callId);
+    UIState.initial();
+  })
+
 
 
 
@@ -235,6 +241,8 @@
 
     UIState.initial = function() {
       console.log('initial');
+      $audioRingIn[0].pause();
+      $audioRingOut[0].pause()
     }
 
     $('#login-user-1').click(function(e) {

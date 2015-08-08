@@ -154,6 +154,12 @@
   function onCallAnswer(call) {
     callId = call.getId();
 
+    kandy.call.startCallVideo(callId, function() {
+      console.log("Started call video");
+    });
+
+
+
     $audioRingOut[0].pause();
     $audioRingIn[0].pause();
   }

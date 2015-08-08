@@ -88,6 +88,10 @@
     function onCallInitiate(call) {
       callId = call.getId();
 
+      kandy.call.startCallVideo(callId, function() {
+        console.log("Started call video onCallInitiate");
+      });
+
       $audioRingIn[0].pause();
       $audioRingOut[0].play();
 
@@ -105,6 +109,13 @@
     }
     // Event handler for oncall event
     function onCall(call) {
+      callId = call.getId();
+      console.log(callId);
+
+      kandy.call.startCallVideo(callId, function() {
+        console.log("Started call video onCall");
+      });
+
       console.debug('oncall');
       $audioRingOut[0].pause();
       UIState.oncall();
@@ -154,11 +165,11 @@
   function onCallAnswer(call) {
     callId = call.getId();
 
+    console.log("Call answered: "+callId);
+
     kandy.call.startCallVideo(callId, function() {
-      console.log("Started call video");
+      console.log("Started call video onCallAnswer");
     });
-
-
 
     $audioRingOut[0].pause();
     $audioRingIn[0].pause();

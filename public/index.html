@@ -23,6 +23,7 @@
   <script>
   $(document).ready(function() {
     var loggedInUser = null;
+    var callId = null;
     // Create audio objects to play incoming calls and outgoing calls sound
     var $audioRingIn = $('<audio>', { loop: 'loop', id: 'ring-in' });
     var $audioRingOut = $('<audio>', { loop: 'loop', id: 'ring-out' })

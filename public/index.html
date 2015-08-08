@@ -27,6 +27,27 @@
     var $audioRingIn = $('<audio>', { loop: 'loop', id: 'ring-in' });
     var $audioRingOut = $('<audio>', { loop: 'loop', id: 'ring-out' })
 
+    // Load audio source to DOM to indicate call events
+    var audioSource = {
+      ringIn: [
+        { src: 'https://kandy-portal.s3.amazonaws.com/public/sounds/ringin.mp3', type: 'audio/mp3' },
+        { src: 'https://kandy-portal.s3.amazonaws.com/public/sounds/ringin.ogg', type: 'audio/ogg' }
+      ],
+      ringOut: [
+        { src: 'https://kandy-portal.s3.amazonaws.com/public/sounds/ringout.mp3', type: 'audio/mp3' },
+        { src: 'https://kandy-portal.s3.amazonaws.com/public/sounds/ringout.ogg', type: 'audio/ogg' }]
+      };
+
+      audioSource.ringIn.forEach(function(entry) {
+        var $source = $('<source>').attr('src', entry.src);
+        $audioRingIn.append($source);
+      });
+
+      audioSource.ringOut.forEach(function(entry) {
+        var $source = $('<source>').attr('src', entry.src);
+        $audioRingOut.append($source);
+      });
+
     kandy.setup({
       listeners: {
         callinitiated: onCallInitiate,
@@ -115,7 +136,7 @@
   function onCallIncoming(call, isAnonymous) {
     $audioRingIn[0].play();
     callId = call.getId();
-    
+
     console.log("Call is incoming.");
     console.log("Call id: "+call.callerName);
 
@@ -285,21 +306,23 @@
   <div id="incoming-video"></div>
 
   <div class="hidden" id="incoming-call">
-              <h4>
-                Incoming Call
-              </h4>
-              <p id="username-incoming"></p>
-              <div class="btn-toolbar">
-                <button class="btn btn-success" id="answer-call-btn">Answer Call</button><button class="btn btn-warning" id="reject-call-btn">Reject Call</button>
-              </div>
-            </div><div class="hidden" id="call-connected">
-              <h4>
-                Call Connected
-              </h4>
-              <p id="username-connected"></p>
-              <div class="btn-toolbar">
-                <button class="btn btn-danger" id="end-call-btn">End Call</button><button class="btn btn-warning" id="hold-call-btn">Hold Call</button><button class="btn btn-success hidden" id="resume-call-btn">Resume Call</button>
-              </div>
+    <h4>
+      Incoming Call
+    </h4>
+    <p id="username-incoming"></p>
+    <div class="btn-toolbar">
+      <button class="btn btn-success" id="answer-call-btn">Answer Call</button><button class="btn btn-warning" id="reject-call-btn">Reject Call</button>
+    </div>
+  </div>
+  <div class="hidden" id="call-connected">
+    <h4>
+      Call Connected
+    </h4>
+    <p id="username-connected"></p>
+    <div class="btn-toolbar">
+      <button class="btn btn-danger" id="end-call-btn">End Call</button><button class="btn btn-warning" id="hold-call-btn">Hold Call</button><button class="btn btn-success hidden" id="resume-call-btn">Resume Call</button>
+    </div>
+  </div>
 
 
 </body>

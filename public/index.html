@@ -73,6 +73,8 @@
     function onCallAnsweredFailed(call) {
       console.debug('callanswerfailed');
       callId = null;
+      $('#incoming-video').addClass('hidden');
+      $('#outgoing-video').addClass('hidden');
     }
     // Event handler for callrejectfailed event
     function onCallRejectFailed() {
@@ -105,6 +107,8 @@
 
       $audioRingOut[0].pause();
       UIState.initial();
+      $('#incoming-video').addClass('hidden');
+      $('#outgoing-video').addClass('hidden');
       alert('call failed');
     }
     // Event handler for oncall event
@@ -143,6 +147,8 @@
       $audioRingIn[0].pause();
 
       UIState.initial();
+      $('#incoming-video').addClass('hidden');
+      $('#outgoing-video').addClass('hidden');
     }
     // Event handler for callincoming event
   function onCallIncoming(call, isAnonymous) {
@@ -185,6 +191,7 @@
   }
   // Event handler for call answer button
   $('#answer-call-btn').on('click', function() {
+    console.log("Call id in answer-call-btn: "+callId);
     kandy.call.answerCall(callId, true);
     UIState.oncall();
   })
@@ -280,6 +287,8 @@
       });
     });
     $('#make-call-btn').click(function() {
+      $('#incoming-video').removeClass('hidden');
+      $('#outgoing-video').removeClass('hidden');
       if (loggedInUser) {
         if (loggedInUser === user1) {
           console.log("Calling user2");
@@ -312,10 +321,10 @@
       <button class="btn btn-danger" id="end-call-btn">End Call</button>
       <button class="btn btn-danger" id="make-call-btn">Make Call</button>
     </div>
-    <div id="incoming-video">
+    <div class="hidden" id="incoming-video">
       <video id="kandyRemoteVideo" width="100%" height="100%" autoplay="autoplay">
     </div>
-    <div id="outgoing-video"></div>
+    <div class="hidden" id="outgoing-video"></div>
   </div>
 </body>
 </html>
